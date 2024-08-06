@@ -19,7 +19,7 @@ const gWinCombo = ref<number[] | null>(null)
 const gFreeCells = ref<boolean>(false)
 
 function getPlayerIndex(playerId: PlayerId | null): number {
-  if (playerId == null) {
+  if (playerId === null) {
     return -1
   }
   const players = gPlayers.value
@@ -32,7 +32,6 @@ function getPlayerIndex(playerId: PlayerId | null): number {
 }
 
 onMounted(() => {
-  console.log('Hello from Vue!')
   Dusk.initClient({
     onChange: ({ game, yourPlayerId, action, event }) => {
       const isInitialization = gCells.value.length === 0 || event?.name === 'stateSync'
